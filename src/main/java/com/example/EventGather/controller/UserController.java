@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/users")
 public interface UserController {
-    
+
     @Operation(summary = "Find all users")
     @GetMapping("/get-all-users")
     ResponseEntity <List<User>> getAllUsers();
@@ -17,4 +17,8 @@ public interface UserController {
     @Operation(summary = "Create a user")
     @PostMapping("/create")
     ResponseEntity<User> registerUser(@RequestBody @Valid User user);
+
+    @Operation(summary = "Delete a user")
+    @DeleteMapping("/delete")
+    ResponseEntity<Void> deleteUser(@RequestParam String id);
 }

@@ -23,6 +23,12 @@ public class UserControllerImpl implements UserController {
     }
 
     @Override
+    public ResponseEntity<Void> deleteUser(String id) {
+         userService.delete(id);
+         return ResponseEntity.ok().build();
+    }
+
+    @Override
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> response = userService.getAllUsers();
         return ResponseEntity.ok(response);
