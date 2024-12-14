@@ -14,9 +14,17 @@ public interface UserController {
     @GetMapping("/get-all-users")
     ResponseEntity <List<User>> getAllUsers();
 
+    @Operation(summary = "Find a user")
+    @GetMapping("/get-user")
+    ResponseEntity<User> getUserById(@RequestParam @Valid String id);
+
     @Operation(summary = "Create a user")
     @PostMapping("/create")
     ResponseEntity<User> registerUser(@RequestBody @Valid User user);
+
+    @Operation(summary = "Update a user")
+    @PutMapping("/update/{id}")
+    ResponseEntity<User> updateUser( @RequestParam @Valid String id,@RequestBody User user);
 
     @Operation(summary = "Delete a user")
     @DeleteMapping("/delete")

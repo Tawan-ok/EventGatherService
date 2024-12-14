@@ -8,4 +8,5 @@ public interface UserService {
       User getUserById(String id);
       void delete(String id);
       List<User> getAllUsers();
+      User updateUser(String id,String name,String email,String password);
 }

@@ -23,6 +23,12 @@ public class UserControllerImpl implements UserController {
     }
 
     @Override
+    public ResponseEntity<User> updateUser(String id,User user) {
+        User response = userService.updateUser(id,user.getName(),user.getEmail(),user.getPassword());
+        return ResponseEntity.ok(response);
+    }
+
+    @Override
     public ResponseEntity<Void> deleteUser(String id) {
          userService.delete(id);
          return ResponseEntity.ok().build();
@@ -32,6 +38,12 @@ public class UserControllerImpl implements UserController {
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> response = userService.getAllUsers();
         return ResponseEntity.ok(response);
+    }
+
+    @Override
+    public ResponseEntity<User> getUserById(String id) {
+        User response = userService.getUserById(id);
+        return ResponseEntity.ok(response) ;
     }
 
 }

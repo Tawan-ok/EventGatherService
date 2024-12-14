@@ -33,4 +33,18 @@ public class UserServiceImpl  implements UserService {
         return userRepository.findAll();
     }
 
+    @Override
+    public User updateUser(String id, String name, String email, String password) {
+        User existingUser = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+
+        User updatedUser = User.builder()
+            .id(existingUser.getId())
+            .name(name!=null ? name : existingUser.getName())
+            .email(email!=null ? email : existingUser.getEmail())
+            .password(password != null ? password: existingUser.getPassword())
+            .build();
+
+        return userRepository.save(updatedUser);
+    }
+
 }

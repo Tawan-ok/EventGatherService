@@ -1,6 +1,7 @@
 package com.example.EventGather.model.entity;
 
 import java.util.List;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -9,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "events")
 @Getter
 @Setter
+@Builder
 public class Event {
     @Id
     private String id;
