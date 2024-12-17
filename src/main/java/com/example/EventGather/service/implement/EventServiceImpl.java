@@ -3,6 +3,7 @@ package com.example.EventGather.service.implement;
 import com.example.EventGather.model.entity.Event;
 import com.example.EventGather.repository.EventRepository;
 import com.example.EventGather.service.EventService;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +16,10 @@ public class EventServiceImpl implements EventService {
     @Override
     public Event createEvent(Event event) {
         return eventRepository.save(event);
+    }
+
+    @Override
+    public List<Event> getAllEvent() {
+        return eventRepository.findAll();
     }
 }
