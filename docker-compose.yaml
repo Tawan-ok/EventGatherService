@@ -1,0 +1,14 @@
+services:
+  msw-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: springboot-app:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - msw-network
+
+networks:
+  msw-network:
+    driver: bridge
